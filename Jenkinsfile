@@ -2,12 +2,9 @@ pipeline {
     agent {
         docker {
             image 'node:6-alpine'
-            args '-p 3000:3000'
-            publishPorts true
+            args '-u root' 
+            port 3000:3000
         }
-    }
-    environment {
-        CI = 'true'
     }
     stages {
         stage('Build') {
